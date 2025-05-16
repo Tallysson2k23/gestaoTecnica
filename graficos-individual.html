@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gráficos - Desempenho Individual</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Gráficos - Desempenho Individual</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+      <label for="tipoGrafico">Tipo de Gráfico:</label>
+      <select id="tipoGrafico">
+        <option value="bar">Barra</option>
+        <option value="pie">Pizza</option>
+        <option value="line">Linha</option>
+      </select>
+    </div>
+
+    <canvas id="graficoIndividual" height="100"></canvas>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="individual.html" class="btn">Voltar</a>
+    </div>
+  </div>
+
+  <script src="js/graficos-individual.js"></script>
+</body>
+</html>
