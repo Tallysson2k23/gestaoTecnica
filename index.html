@@ -3,32 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <title>Desempenho das Equipes</title>
-    <link rel="stylesheet" href="css/style.css" />
+  <title>Painel de Desempenho</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Desempenho das Equipes</h1>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Equipe</th>
-          <th>Quantidade de O.S</th>
-        </tr>
-      </thead>
-      <tbody id="tabela-equipes">
-        <!-- Preenchido via JavaScript -->
-      </tbody>
-    </table>
-    <div style="text-align: center; margin-top: 20px;">
-  <a href="graficos.html" class="btn">Gráficos em Equipes</a>
-  <a href="individual.html" class="btn">Individual</a>
-</div>
 
+  <!-- Botão de menu -->
+  <button class="menu-toggle" onclick="abrirMenu()">☰</button>
+
+  <!-- Sidebar lateral -->
+  <nav id="sidebar" class="sidebar">
+    <a href="grafico-equipes.html">📊 Gráfico por Equipes</a>
+    <a href="grafico-individuais.html">📈 Gráfico Individual</a>
+    <a href="#" onclick="fecharMenu()">❌ Fechar</a>
+  </nav>
+
+  <div class="painel">
+    <h1>Painel de Desempenho</h1>
+    <div class="colunas">
+      <div class="coluna">
+        <h2>Equipes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Equipe</th>
+              <th>O.S</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-equipes"></tbody>
+        </table>
+      </div>
+      <div class="coluna">
+        <h2>Individuais</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Técnico</th>
+              <th>O.S</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-individual"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <script src="js/script.js"></script>
+  <script src="js/individual.js"></script>
+  <script>
+    function abrirMenu() {
+      document.getElementById('sidebar').style.left = '0';
+    }
+
+    function fecharMenu() {
+      document.getElementById('sidebar').style.left = '-250px';
+    }
+  </script>
 </body>
 </html>
