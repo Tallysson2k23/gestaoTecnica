@@ -42,7 +42,9 @@
   flex: 1;
   font-size: 16px;
   font-weight: 500;
+  white-space: nowrap; /* Garante linha única */
 }
+
 
 .toast-close {
   cursor: pointer;
@@ -77,7 +79,7 @@
     <div id="toast" class="toast">
       <div class="toast-icon">&#10004;</div>
       <div class="toast-message">
-        Última atualização: 30/05 às 10:00
+        Última       atualização:        30/05 às 10:00
       </div>
       <div class="toast-close" onclick="closeToast()">&#10005;</div>
     </div>
