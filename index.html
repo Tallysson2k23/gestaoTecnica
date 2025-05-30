@@ -1,147 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Painel de Desempenho - MAIO 2025</title>
-  <link rel="stylesheet" href="css/style.css" />
-  
+  <title>Em manutenção</title>
   <style>
-  /* Toast Notification - Centralizado na tela */
-.toast {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #263238;
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  border-left: 6px solid #4caf50;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 9999;
-}
-
-.toast.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.toast-icon {
-  font-size: 22px;
-  color: #4caf50;
-  margin-right: 12px;
-}
-
-.toast-message {
-  flex: 1;
-  font-size: 16px;
-  font-weight: 500;
-  white-space: nowrap; /* Garante linha única */
-}
-
-
-.toast-close {
-  cursor: pointer;
-  color: #ccc;
-  margin-left: 12px;
-  font-size: 18px;
-}
-
-.toast-close:hover {
-  color: #fff;
-}
-
+    body {
+      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      color: #333;
+    }
   </style>
 </head>
-
 <body>
-
-  <!-- Botão de menu -->
-  <button class="menu-toggle" onclick="abrirMenu()">☰</button>
-
-  <!-- Sidebar lateral -->
-  <nav id="sidebar" class="sidebar">
-    <a href="graficos.html">📊 Gráfico por Equipes</a>
-    <a href="graficos-individual.html">📈 Gráfico Individual</a>
-    <a href="#" onclick="fecharMenu()">❌ Fechar</a>
-  </nav>
-
-  <div class="painel">
-    <h1>Painel de Desempenho - MAIO 2025</h1>
-
-    <!-- Toast de notificação -->
-    <div id="toast" class="toast">
-      <div class="toast-icon">&#10004;</div>
-      <div class="toast-message">
-        Última       atualização:        30/05 às 10:00
-      </div>
-      <div class="toast-close" onclick="closeToast()">&#10005;</div>
-    </div>
-
-    <div class="colunas">
-      <div class="coluna">
-        <table>
-          <thead>
-            <tr>
-              <th>EQUIPES</th>
-              <th>O.S</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-equipes"></tbody>
-        </table>
-      </div>
-      <div class="coluna">
-        <table>
-          <thead>
-            <tr>
-              <th>TÉCNICOS</th>
-              <th>O.S</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-individual"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/script.js"></script>
-  <script src="js/individual.js"></script>
-
-  <script>
-    function abrirMenu() {
-      document.getElementById('sidebar').style.left = '0';
-    }
-
-    function fecharMenu() {
-      document.getElementById('sidebar').style.left = '-250px';
-    }
-
-    function showToast() {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-
-      setTimeout(() => {
-        toast.classList.remove('show');
-      },2000); // Fecha automaticamente após 5 segundos
-    }
-
-    function closeToast() {
-      const toast = document.getElementById('toast');
-      toast.classList.remove('show');
-    }
-
-    // Mostra o toast ao carregar a página
-    window.onload = function() {
-      showToast();
-    }
-  </script>
-
+  <h1>🚧 Estou atualizando os relatorio</h1>
+  <p>Volte depois para ver sua coloção em MAIO </p>
 </body>
 </html>
