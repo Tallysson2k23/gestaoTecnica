@@ -7,54 +7,54 @@
   <link rel="stylesheet" href="css/style.css" />
   
   <style>
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #263238;
-      color: #fff;
-      padding: 16px 24px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      display: flex;
-      align-items: center;
-      border-left: 6px solid #4caf50;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      z-index: 9999;
-    }
+  /* Toast Notification - Centralizado na tela */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #263238;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  border-left: 6px solid #4caf50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
 
-    .toast.show {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    .toast-icon {
-      font-size: 22px;
-      color: #4caf50;
-      margin-right: 12px;
-    }
+.toast-icon {
+  font-size: 22px;
+  color: #4caf50;
+  margin-right: 12px;
+}
 
-    .toast-message {
-      flex: 1;
-      font-size: 16px;
-      font-weight: 500;
-    }
+.toast-message {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
 
-    .toast-close {
-      cursor: pointer;
-      color: #ccc;
-      margin-left: 12px;
-      font-size: 18px;
-    }
+.toast-close {
+  cursor: pointer;
+  color: #ccc;
+  margin-left: 12px;
+  font-size: 18px;
+}
 
-    .toast-close:hover {
-      color: #fff;
-    }
+.toast-close:hover {
+  color: #fff;
+}
+
   </style>
 </head>
 
@@ -77,7 +77,7 @@
     <div id="toast" class="toast">
       <div class="toast-icon">&#10004;</div>
       <div class="toast-message">
-        Última atualização do ranking: 30/05 às 10:00
+        Última atualização: 30/05 às 10:00
       </div>
       <div class="toast-close" onclick="closeToast()">&#10005;</div>
     </div>
@@ -126,7 +126,7 @@
 
       setTimeout(() => {
         toast.classList.remove('show');
-      }, 5000); // Fecha automaticamente após 5 segundos
+      },2000); // Fecha automaticamente após 5 segundos
     }
 
     function closeToast() {
