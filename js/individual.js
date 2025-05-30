@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { nome: 'MARIO', os: 73 },
     { nome: 'IGO', os: 33 },
     { nome: 'BONAPARTE', os: 137 },
-    { nome: 'WILLAMYS', os: 25 },
+    { nome: 'WILLAMYS ', os: 25 },
     { nome: 'BERLY', os: 92 }
   ];
 
@@ -40,7 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     row.className = classe;
-    row.innerHTML = `<td>${medalha}${tecnico.nome}</td><td>${tecnico.os}</td>`;
-    tabela.appendChild(row);
+  let nomeExibido = tecnico.nome.trim() === 'WILLAMYS'
+  ? `<img src="https://media.tenor.com/hDmaZUU2UaIAAAAj/sonic-super-pill-out.gif" alt="Sonic" style="height: 20px; vertical-align: middle; margin-right: 5px;">${tecnico.nome}`
+  : tecnico.nome;
+
+row.innerHTML = `<td>${medalha}${nomeExibido}</td><td>${tecnico.os}</td>`;
+tabela.appendChild(row);
   });
 });
