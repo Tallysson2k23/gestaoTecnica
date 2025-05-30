@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tecnicos = [
-    { nome: 'ROBSON', os: 6 },
-    { nome: 'NETO', os: 6 },
-    { nome: 'JEAN', os: 4 },
-    { nome: 'MATHEUS', os: 4 },
-    { nome: 'RANIERE', os: 8 },
-    { nome: 'MATEUS H', os: 7 },
-    { nome: 'GILVANIO', os: 5 },
-    { nome: 'JORGE', os: 4 },
-    { nome: 'MARCIO', os: 6 },
-    { nome: 'JEFFERSON', os: 5 },
-    { nome: 'LUCAS ER.', os: 5 },
-    { nome: 'GABRIEL', os: 5 },
-    { nome: 'MARIO', os: 7 },
-    { nome: 'IGO', os: 7 },
-    { nome: 'BONAPARTE', os: 6 },
-    { nome: 'WILLAMYS', os: 13 },
-    { nome: 'BERLY', os: 7 }
+    { nome: 'ROBSON', os: 57 },
+    { nome: 'NETO', os: 114 },
+    { nome: 'JEAN', os: 34 },
+    { nome: 'MATHEUS', os: 11 },
+    { nome: 'RANIERE', os: 20 },
+    { nome: 'MATEUS H', os: 33 },
+    { nome: 'GILVANIO', os: 107 },
+    { nome: 'JORGE', os: 0 },
+    { nome: 'MARCIO', os: 94 },
+    { nome: 'JEFFERSON', os: 74 },
+    { nome: 'LUCAS ER.', os: 68 },
+    { nome: 'GABRIEL', os: 71 },
+    { nome: 'MARIO', os: 114 },
+    { nome: 'IGO', os: 14 },
+    { nome: 'BONAPARTE', os: 1 },
+    { nome: 'WILLAMYS', os: 4 },
+    { nome: 'BERLY', os: 56 }
   ];
 
   tecnicos.sort((a, b) => b.os - a.os);
