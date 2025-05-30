@@ -1,14 +1,13 @@
 const equipes = [
-  { nome: 'ROBSON e NETO', os: 12 },
-  { nome: 'JEAN e MATHEUS', os: 8 },
-  { nome: 'RANIERE e MATEUS H', os: 15 },
-  { nome: 'GILVANIO e JORGE', os: 9 },
-  { nome: 'MARCIO e JEFFERSON', os: 11 },
-  { nome: 'LUCAS ER. e GABRIEL', os: 10 },
-  { nome: 'MARIO e IGO', os: 14 },
-  { nome: 'BONAPARTE', os: 6 },
-  { nome: 'WILLAMYS', os: 13 },
-  { nome: 'BERLY', os: 7 }
+  { nome: 'ROBSON e NETO', os: 82 },
+  { nome: 'JEAN e MATHEUS', os: 20 },
+  { nome: 'RANIERE e MATEUS H', os: 113 },
+  { nome: 'GILVANIO e JORGE', os: 52 },
+  { nome: 'MARCIO e JEFFERSON', os: 106 },
+  { nome: 'LUCAS ER. e GABRIEL', os: 164 },
+  { nome: 'MARIO e IGO', os: 106 },
+  { nome: 'BONAPARTE e WILL', os: 106 },
+  { nome: 'BERLY', os: 92 }
 ];
 
 // Ordena do maior para o menor
