@@ -3,9 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Painel de Desempenho - MAIO 2025 </title>
+  <title>Painel de Desempenho - MAIO 2025</title>
   <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #263238;
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      border-left: 6px solid #4caf50;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      z-index: 9999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .toast-icon {
+      font-size: 22px;
+      color: #4caf50;
+      margin-right: 12px;
+    }
+
+    .toast-message {
+      flex: 1;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .toast-close {
+      cursor: pointer;
+      color: #ccc;
+      margin-left: 12px;
+      font-size: 18px;
+    }
+
+    .toast-close:hover {
+      color: #fff;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Botão de menu -->
@@ -19,10 +71,19 @@
   </nav>
 
   <div class="painel">
-    <h1>Painel de Desempenho - MAIO 2025 - ultima atualização 30/05 as 10:00</h1><br><br>
+    <h1>Painel de Desempenho - MAIO 2025</h1>
+
+    <!-- Toast de notificação -->
+    <div id="toast" class="toast">
+      <div class="toast-icon">&#10004;</div>
+      <div class="toast-message">
+        Última atualização do ranking: 30/05 às 10:00
+      </div>
+      <div class="toast-close" onclick="closeToast()">&#10005;</div>
+    </div>
+
     <div class="colunas">
       <div class="coluna">
-       <!-- <h2>Equipes</h2> -->
         <table>
           <thead>
             <tr>
@@ -34,7 +95,6 @@
         </table>
       </div>
       <div class="coluna">
-       <!-- <h2>Individuais</h2> -->
         <table>
           <thead>
             <tr>
@@ -50,6 +110,7 @@
 
   <script src="js/script.js"></script>
   <script src="js/individual.js"></script>
+
   <script>
     function abrirMenu() {
       document.getElementById('sidebar').style.left = '0';
@@ -58,6 +119,26 @@
     function fecharMenu() {
       document.getElementById('sidebar').style.left = '-250px';
     }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 5000); // Fecha automaticamente após 5 segundos
+    }
+
+    function closeToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.remove('show');
+    }
+
+    // Mostra o toast ao carregar a página
+    window.onload = function() {
+      showToast();
+    }
   </script>
+
 </body>
 </html>
