@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { nome: 'GABRIEL', os: 74 },
     { nome: 'MARIO', os: 73 },
     { nome: 'IGO', os: 33 },
-    { nome: 'BONAPARTE', os: 137 },
+    { nome: 'BONAPARTE', os: 144 },
     { nome: 'WILLAMYS ', os: 25 },
     { nome: 'BERLY', os: 92 }
   ];
