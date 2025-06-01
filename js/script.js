@@ -1,12 +1,12 @@
 const equipes = [
-  { nome: 'ROBSON e NETO', os: 82 },
+  { nome: 'ROBSON e NETO', os: 89 },
   { nome: 'JEAN e MATHEUS', os: 20 },
-  { nome: 'RANIERE e MATEUS H', os: 113 },
-  { nome: 'GILVANIO e JORGE', os: 52 },
-  { nome: 'MARCIO e JEFFERSON', os: 106 },
-  { nome: 'LUCAS ER. e GABRIEL', os: 164 },
-  { nome: 'MARIO e IGO', os: 106 },
-  { nome: 'BONAPARTE e WILL', os: 169 },
+  { nome: 'RANIERE e MATEUS H', os: 118 },
+  { nome: 'GILVANIO e JORGE', os: 53 },
+  { nome: 'MARCIO e JEFFERSON', os: 112 },
+  { nome: 'LUCAS ER. e GABRIEL', os: 170 },
+  { nome: 'MARIO e IGO', os: 118 },
+  { nome: 'BONAPARTE e WILL', os: 172 },
   { nome: 'BERLY', os: 92 }
 ];
 
