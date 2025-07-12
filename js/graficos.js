@@ -1,13 +1,14 @@
 const equipes = [
-  { nome: 'ROBSON e NETO', os: 89 },
-  { nome: 'JEAN e MATHEUS', os: 20 },
-  { nome: 'RANIERE e MATEUS H', os: 118 },
-  { nome: 'GILVANIO e JORGE', os: 53 },
-  { nome: 'MARCIO e JEFFERSON', os: 112 },
-  { nome: 'LUCAS ER. e GABRIEL', os: 170 },
-  { nome: 'MARIO e IGO', os: 118 },
-  { nome: 'BONAPARTE e WILL', os: 172 },
-  { nome: 'BERLY', os: 92 }
+  { nome: 'ROBSON e MATEUS H.', os: 127 },
+  { nome: 'JEAN e RANIERE', os: 11 },
+  { nome: 'MATHEUS S. e NETO', os: 91 },
+  { nome: 'GILVANIO e JORGE', os: 46 },
+  { nome: 'MARCIO e BONAPARTE', os: 71 },
+  { nome: 'LUCAS ER. e GABRIEL', os: 171 },
+  { nome: 'WILLAMYS', os: 86},
+  { nome: 'MARIO e JEFFERSON', os: 135 },
+  { nome: 'IGO E WESLEI', os: 138 },
+  { nome: 'EWAMBERLY', os:52 }
 ];
 
 const labels = equipes.map(e => e.nome);

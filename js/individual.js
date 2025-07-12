@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tecnicos = [
-    { nome: 'ROBSON', os: 21 },
-    { nome: 'NETO', os: 68 },
-    { nome: 'JEAN', os: 18 },
-    { nome: 'MATHEUS', os: 2 },
+    { nome: 'ROBSON', os: 51 },
+    { nome: 'NETO', os: 84 },
+    { nome: 'JEAN', os: 3 },
+    { nome: 'MATHEUS', os: 7 },
     { nome: 'RANIERE', os: 8 },
-    { nome: 'MATEUS H', os: 110 },
-    { nome: 'GILVANIO', os: 53 },
+    { nome: 'MATEUS H', os: 76 },
+    { nome: 'GILVANIO', os: 46 },
     { nome: 'JORGE', os: 0 },
-    { nome: 'MARCIO', os: 103 },
-    { nome: 'JEFFERSON', os: 9 },
-    { nome: 'LUCAS ER.', os: 92 },
-    { nome: 'GABRIEL', os: 78 },
-    { nome: 'MARIO', os: 76 },
-    { nome: 'IGO', os: 42 },
-    { nome: 'BONAPARTE', os: 144 },
-    { nome: 'WILLAMYS ', os: 28 },
-    { nome: 'BERLY', os: 92 }
+    { nome: 'MARCIO', os: 61 },
+    { nome: 'JEFFERSON', os: 14 },
+    { nome: 'LUCAS ER.', os: 97 },
+    { nome: 'GABRIEL', os: 74 },
+    { nome: 'MARIO', os: 121 },
+    { nome: 'IGO', os: 138 },
+    { nome: 'BONAPARTE', os: 10 },
+    { nome: 'WILLAMYS ', os: 86 },
+    { nome: 'BERLY', os: 52 }
   ];
 
   tecnicos.sort((a, b) => b.os - a.os);
