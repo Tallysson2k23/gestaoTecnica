@@ -5,89 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel de Desempenho - 2025</title>
   <link rel="stylesheet" href="css/style.css" />
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
+    :root{
+      --bg:#f5f7fa;
+      --txt:#263238;
+      --azul:#1976d2;
+      --azul-escuro:#0d47a1;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:28px;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--txt);
+      padding:24px;
+    }
+    h1{margin:0; text-align:center}
+
+    .wrap{
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      padding:28px;
     }
 
-    h1 {
-      margin-bottom: 30px;
-      color: #263238;
+    .botoes{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      min-width:260px;
+    }
+    @media (min-width:520px){
+      .botoes{ grid-template-columns:1fr 1fr; min-width:520px; }
     }
 
-    .botoes {
-      display: flex;
-      gap: 20px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 22px;
+      border-radius:12px;
+      text-decoration:none;
+      color:#fff;
+      background:var(--azul);
+      font-weight:700;
+      font-size:18px;
+      letter-spacing:.3px;
+      transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow:0 6px 16px rgba(25,118,210,.25);
     }
-
-    .botoes a {
-      background: #1976d2;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-size: 18px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .botoes a:hover {
-      background: #0d47a1;
-    }
+    .btn:hover{ background:var(--azul-escuro); box-shadow:0 8px 20px rgba(13,71,161,.28); }
+    .btn:active{ transform:translateY(1px); }
   </style>
 </head>
 <body>
   <h1>Escolha o tipo de Desempenho</h1>
 
-  <!-- Sidebar lateral -->
-  <nav id="sidebar" class="sidebar">
-    <a href="graficos.html">📊 Gráfico por Equipes</a>
-    <a href="graficos-individual.html">📈 Gráfico Individual</a>
-    <a href="#" onclick="fecharMenu()">❌ Fechar</a>
-  </nav>
-
-  <div class="painel">
-    <!--Titulo da pagina -->
-    <h1>Painel de Desempenho - MAIO 2025</h1>
-
-    <!-- Toast de notificação -->
-    <div id="toast" class="toast">
-      <div class="toast-icon">&#10004;</div>
-      <div class="toast-message">
-        Última       atualização:        01/06 às 17:06
-      </div>
-      <div class="toast-close" onclick="closeToast()">&#10005;</div>
-    </div>
-
-    <div class="colunas">
-      <div class="coluna">
-        <table>
-          <thead>
-            <tr>
-              <th>EQUIPES</th>
-              <th>O.S</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-equipes"></tbody>
-        </table>
-      </div>
-      <div class="coluna">
-        <table>
-          <thead>
-            <tr>
-              <th>TÉCNICOS</th>
-              <th>O.S</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-individual"></tbody>
-        </table>
-      </div>
+  <div class="wrap">
+    <div class="botoes">
+      <a class="btn" href="diario.html"  role="button">📅 Desempenho diário</a>
+      <a class="btn" href="mensal.html"  role="button">📆 Desempenho mensal</a>
     </div>
   </div>
 </body>
