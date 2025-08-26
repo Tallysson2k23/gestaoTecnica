@@ -45,9 +45,50 @@
 <body>
   <h1>Escolha o tipo de Desempenho</h1>
 
-  <div class="botoes">
-    <a href="mensal.html">📊 Desempenho Mensal</a>
-    <a href="diario.html">📅 Desempenho Diário</a>
+  <!-- Sidebar lateral -->
+  <nav id="sidebar" class="sidebar">
+    <a href="graficos.html">📊 Gráfico por Equipes</a>
+    <a href="graficos-individual.html">📈 Gráfico Individual</a>
+    <a href="#" onclick="fecharMenu()">❌ Fechar</a>
+  </nav>
+
+  <div class="painel">
+    <!--Titulo da pagina -->
+    <h1>Painel de Desempenho - MAIO 2025</h1>
+
+    <!-- Toast de notificação -->
+    <div id="toast" class="toast">
+      <div class="toast-icon">&#10004;</div>
+      <div class="toast-message">
+        Última       atualização:        01/06 às 17:06
+      </div>
+      <div class="toast-close" onclick="closeToast()">&#10005;</div>
+    </div>
+
+    <div class="colunas">
+      <div class="coluna">
+        <table>
+          <thead>
+            <tr>
+              <th>EQUIPES</th>
+              <th>O.S</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-equipes"></tbody>
+        </table>
+      </div>
+      <div class="coluna">
+        <table>
+          <thead>
+            <tr>
+              <th>TÉCNICOS</th>
+              <th>O.S</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-individual"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </body>
 </html>
