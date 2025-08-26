@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desempenho Diário</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root{
+      --azul:#1976d2;
+      --azul-escuro:#0d47a1;
+      --bg:#f5f7fa;
+      --card:#ffffff;
+    }
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);padding:20px;}
+    h1{margin:0 0 6px;text-align:center;color:#263238}
+    .sub{margin:0 0 16px;text-align:center;color:#5f6b75;font-size:14px}
+
+    .wrap{
+      background:var(--card);
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+
+    table{width:100%;border-collapse:separate;border-spacing:0}
+    thead th{
+      position:sticky; top:0; z-index:3;
+      background:var(--azul); color:#fff; text-align:center;
+      padding:10px 6px; font-weight:700; border-bottom:1px solid #e7eef6;
+      min-width:65px;  /* largura mínima das colunas de dias */
+    }
+    thead th .dow{display:block; font-size:11px; opacity:.9; letter-spacing:.3px}
+    thead th .dom{display:block; font-size:18px; margin-top:2px}
+
+    tbody td, tbody th{
+      padding:8px 6px; text-align:center; border-bottom:1px solid #eef2f6;
+      background:#fff;
+      min-width:65px;
+    }
+
+    /* primeira coluna fixa (nomes das duplas) */
+    tbody th.sticky, thead th.sticky{
+      position:sticky; 
+      left:0; 
+      z-index:4; 
+      background:#1e293b; 
+      color:#fff;
+      text-align:left; 
+      min-width:100px; 
+      max-width:100px; 
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      font-size:13px;
+    }
+    tbody th.sticky{
+      background:#f0f4f8; 
+      color:#24343f
+    }
+
+    /* células com valor ganham destaque */
+    .os{font-weight:700; background:#e9f2ff}
+    .zero{color:#9aa6b2;}
+
+    /* rodapé de navegação */
+    .pager{
+      display:flex; gap:10px; align-items:center; justify-content:center;
+      padding:14px; background:#fff; border-radius:12px; margin-top:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.06);
+    }
+    .pager button{
+      border:none; background:var(--azul); color:#fff; padding:10px 14px;
+      border-radius:10px; cursor:pointer; font-weight:600;
+    }
+    .pager button[disabled]{background:#b0c5e5; cursor:not-allowed}
+    .pager .range{font-size:14px; color:#41505b; min-width:160px; text-align:center}
+
+    /* rolagem horizontal opcional para telas menores */
+    .scroll-x{overflow-x:auto}
+
+    /* sábado */
+    .sabado {
+      background-color: #8daa5f !important; /* amarelo claro */
+    }
+
+    /* domingo */
+    .domingo {
+      background-color: #a75860ce !important; /* vermelho claro */
+    }
+  </style>
+</head>
+<body>
+  <h1>Desempenho Diário</h1>
+  <p class="sub" id="tituloMes"></p>
+
+  <div class="wrap scroll-x">
+    <table id="tabela">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="pager">
+    <button id="btnPrev">← Dias anteriores</button>
+    <div class="range" id="rangeInfo"></div>
+    <button id="btnNext">Próximos dias →</button>
+  </div>
+
+  <script>
+    // ======= CONFIGURÁVEL =======
+    const DUPLAS = [
+      "MARCIO & MATEUS H.",
+      "JEAN & RANIERE",
+      "MARIO & WESLEY",
+      "GILVANIO",
+      "LUCAS & JEFFERSON",
+      "WILLAMYS",
+      "BERLY"
+    ];
+
+    const DADOS = {
+      "MARCIO & MATEUS H.": {
+        1:4, 2:0, 3:0, 4:4, 5:3, 6:4, 7:5, 8:1, 9:2, 10:0,
+        11:4, 12:5, 13:4, 14:6, 15:7, 16:0, 17:0, 18:4, 19:4, 20:4,
+        21:4, 22:6, 23:2, 24:0, 25:4, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      },
+
+      "JEAN & RANIERE": {
+        1:4, 2:0, 3:0, 4:0, 5:2, 6:1, 7:3, 8:0, 9:0, 10:0,
+        11:0, 12:0, 13:1, 14:1, 15:0, 16:0, 17:0, 18:1, 19:2, 20:0,
+        21:5, 22:2, 23:0, 24:2, 25:7, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      "MARIO & WESLEY": {
+        1:0, 2:3, 3:0, 4:2, 5:6, 6:5, 7:7, 8:6, 9:0, 10:3,
+        11:6, 12:2, 13:5, 14:4, 15:5, 16:2, 17:0, 18:5, 19:6, 20:6,
+        21:5, 22:6, 23:0, 24:0, 25:5, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      },
+
+      "GILVANIO": {
+        1:6, 2:0, 3:0, 4:2, 5:6, 6:8, 7:8, 8:5, 9:2, 10:0,
+        11:5, 12:4, 13:8, 14:8, 15:2, 16:0, 17:3, 18:0, 19:8, 20:7,
+        21:6, 22:0, 23:0, 24:0, 25:8, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      },
+      "LUCAS & JEFFERSON": {
+        1:19, 2:13, 3:0, 4:1, 5:6, 6:2, 7:14, 8:15, 9:0, 10:0,
+        11:0, 12:0, 13:2, 14:13, 15:14, 16:0, 17:3, 18:2, 19:0, 20:4,
+        21:13, 22:5, 23:0, 24:0, 25:0, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      },
+      "WILLAMYS": {
+        1:7, 2:0, 3:0, 4:8, 5:5, 6:6, 7:5, 8:5, 9:0, 10:0,
+        11:5, 12:1, 13:6, 14:3, 15:0, 16:1, 17:0, 18:7, 19:4, 20:6,
+        21:2, 22:5, 23:8, 24:0, 25:2, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      },
+      "BERLY": {
+        1:2, 2:0, 3:0, 4:0, 5:0, 6:0, 7:5, 8:3, 9:0, 10:0,
+        11:0, 12:6, 13:5, 14:8, 15:2, 16:2, 17:0, 18:0, 19:0, 20:2,
+        21:5, 22:1, 23:0, 24:0, 25:0, 26:0, 27:0, 28:0, 29:0, 30:0, 31:0
+      }
+    };
+
+    // Quantos dias mostrar por vez
+    const CHUNK = 10;
+
+    // Mês/ano padrão (atual)
+    const hoje = new Date();
+    let ano  = hoje.getFullYear();
+    let mes  = hoje.getMonth();
+    let start = 1;
+
+    // ======= UTIL =======
+    const diasSemana = ["DOM","SEG","TER","QUA","QUI","SEX","SÁB"];
+    const nomeMes = (y,m) => new Date(y,m,1).toLocaleDateString("pt-BR",{month:"long", year:"numeric"});
+    const diasNoMes = (y,m) => new Date(y, m+1, 0).getDate();
+    function clamp(val, min, max){ return Math.max(min, Math.min(max, val)); }
+
+    // ======= RENDER =======
+    function render(){
+      const totalDias = diasNoMes(ano, mes);
+      const end = clamp(start + CHUNK - 1, 1, totalDias);
+
+      document.getElementById("tituloMes").textContent = nomeMes(ano, mes).replace(/^\w/, c => c.toUpperCase());
+      document.getElementById("rangeInfo").textContent = `Mostrando dias ${start}–${end} de ${totalDias}`;
+
+      // Cabeçalho
+      const thead = document.getElementById("thead");
+      thead.innerHTML = "";
+      const trh = document.createElement("tr");
+
+      const thNome = document.createElement("th");
+      thNome.className = "sticky";
+      thNome.textContent = "Dupla / Equipe";
+      trh.appendChild(thNome);
+
+      for(let d = start; d <= end; d++){
+        const th = document.createElement("th");
+        const dow = new Date(ano, mes, d).getDay(); // 0=domingo, 6=sábado
+
+        // aplica classes de fim de semana no cabeçalho
+        if (dow === 0) th.classList.add("domingo");
+        if (dow === 6) th.classList.add("sabado");
+
+        th.innerHTML = `<span class="dow">${diasSemana[dow]}</span>
+                        <span class="dom">${String(d).padStart(2,"0")}</span>`;
+        trh.appendChild(th);
+      }
+      thead.appendChild(trh);
+
+      // Corpo
+      const tbody = document.getElementById("tbody");
+      tbody.innerHTML = "";
+      DUPLAS.forEach(dupla=>{
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        th.textContent = dupla;
+        th.className = "sticky";
+        tr.appendChild(th);
+
+        for(let d = start; d <= end; d++){
+          const td = document.createElement("td");
+          const dow = new Date(ano, mes, d).getDay(); // 0=domingo, 6=sábado
+
+          // aplica classes de fim de semana nas células
+          if (dow === 0) td.classList.add("domingo");
+          if (dow === 6) td.classList.add("sabado");
+
+          const val = (DADOS[dupla] && DADOS[dupla][d]) ? DADOS[dupla][d] : 0;
+          if(val > 0){
+            td.classList.add("os");
+            td.textContent = `${val} O.S`;
+          }else{
+            td.classList.add("zero");
+            td.textContent = "—";
+          }
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      });
+
+      // Botões
+      document.getElementById("btnPrev").disabled = start === 1;
+      document.getElementById("btnNext").disabled = end === totalDias;
+    }
+
+    // ======= NAVEGAÇÃO =======
+    document.getElementById("btnPrev").addEventListener("click", ()=>{
+      start = clamp(start - CHUNK, 1, diasNoMes(ano, mes));
+      render();
+    });
+
+    document.getElementById("btnNext").addEventListener("click", ()=>{
+      start = clamp(start + CHUNK, 1, diasNoMes(ano, mes));
+      render();
+    });
+
+    // Primeira renderização
+    render();
+  </script>
+</body>
+</html>
